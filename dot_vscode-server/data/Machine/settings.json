@@ -1,0 +1,75 @@
+{
+  "window.commandCenter": false,
+  "workbench.colorTheme": "Visual Studio Dark",
+  "workbench.layoutControl.enabled": false,
+  "workbench.editor.customLabels.patterns": {
+    "**/index.{ts,tsx,js,jsx,module.css}": "${dirname}/"
+  },
+  "editor.tabSize": 2,
+  "editor.accessibilitySupport": "off",
+  "editor.renderWhitespace": "none",
+  "editor.inlineSuggest.enabled": true,
+  "breadcrumbs.enabled": true,
+  "debug.showBreakpointsInOverviewRuler": true,
+  
+  "terminal.integrated.profiles.linux": {
+    "fish": {
+      "path": "fish",
+      "icon": "terminal"
+    },
+    "bash": {
+      "path": "bash",
+      "icon": "terminal-bash"
+    },
+    "tmux": {
+      "path": "tmux",
+      "env": {
+        "AZURE_CONFIG_DIR": "${userHome}/.config/azure/${workspaceFolderBasename}"
+      },
+      "args": ["new-session", "-A", "-s", "${workspaceFolderBasename}"],
+      "icon": "terminal-tmux"
+    },
+    "pwsh": {
+      "path": "pwsh",
+      "icon": "terminal-powershell"
+    }
+  },
+  "terminal.integrated.defaultProfile.linux": "fish",
+  "terminal.integrated.altClickMovesCursor": false,
+  "terminal.integrated.ignoreProcessNames": ["starship", "oh-my-posh", "bash", "zsh", "fish"],
+  "terminal.integrated.commandsToSkipShell": ["workbench.action.toggleSidebarVisibility"],
+  "terminal.integrated.fontFamily": "\"Cascadia Mono NF\", \"Cascadia Mono PL\", Consolas, monospace",
+  
+  "bicep.experimental.enableModuleRegistryReferenceCompletions": true,
+  "bicep.experimental.includeAllAccessibleAzureContainerRegistriesForCompletions": true,
+  "dotnetAcquisitionExtension.existingDotnetPath": [
+    {
+      "extensionId": "ms-azuretools.vscode-bicep",
+      "path": "/usr/bin/dotnet"
+    }
+  ],
+
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.replaceTagsWhenPull": true,
+
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": false,
+    "scminput": false
+  },
+  "github.copilot.chat.scopeSelection": true,
+  "github.copilot.editor.enableAutoCompletions": true,
+
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.inlayHints.parameterNames.enabled": "literals",
+  "javascript.updateImportsOnFileMove.enabled": "always", 
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "files.associations": {
+    ".env": "plaintext"
+  },
+}

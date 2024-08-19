@@ -1,0 +1,26 @@
+[user]
+	name = Kukukuchu
+	email = 637798+Kukukuchu@users.noreply.github.com
+
+[core]
+    pager = delta
+	editor = micro
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+
+[merge]
+	conflictstyle = diff3
+
+[delta]
+	line-numbers = true
+	side-by-side = true
+	colorMoved = default
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[includeIf "gitdir:~/projects/**"]
+    path = ~/projects/.gitconfig
+
+
