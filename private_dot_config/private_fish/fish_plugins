@@ -1,9 +1,13 @@
 jorgebucaran/fisher
+cafedomancer/fish-nodenv
+decors/fish-colored-man
+edc/bass
+gazorby/fifc
+gazorby/fish-abbreviation-tips
 ilancosman/tide@v6
 jorgebucaran/getopts.fish
-nickeb96/puffer-fish
 jorgebucaran/autopair.fish
-patrickf1/fzf.fish
-edc/bass
+lumakernel/fish-fd-complete
 markcial/upto
-gazorby/fifc
+nickeb96/puffer-fish
+patrickf1/fzf.fish
