@@ -39,6 +39,9 @@
   "terminal.integrated.ignoreProcessNames": ["starship", "oh-my-posh", "bash", "zsh", "fish"],
   "terminal.integrated.commandsToSkipShell": ["workbench.action.toggleSidebarVisibility"],
   "terminal.integrated.fontFamily": "\"Cascadia Mono NF\", \"Cascadia Mono PL\", Consolas, monospace",
+  "terminal.integrated.cursorStyleInactive": "none",
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.enableImages": true,
   
   "bicep.experimental.enableModuleRegistryReferenceCompletions": true,
   "bicep.experimental.includeAllAccessibleAzureContainerRegistriesForCompletions": true,
@@ -53,6 +56,7 @@
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
   "git.replaceTagsWhenPull": true,
+  "git.mergeEditor": true,
 
   "github.copilot.enable": {
     "*": true,
