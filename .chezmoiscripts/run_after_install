@@ -1,4 +1,8 @@
 #!/bin/fish
+
+echo "> brew bundle"
 brew bundle
+echo "> fisher update"
 fisher update
+echo "> fish_config theme choose neon]"
 fish_config theme choose neon
