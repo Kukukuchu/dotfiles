@@ -93,7 +93,7 @@ show_selection_mark: true
 # (see https://dystroy.org/broot/icons for installation and
 # troubleshooting)
 #
-# icon_theme: vscode
+icon_theme: vscode
 
 ###############################################################
 # Special paths
@@ -229,14 +229,14 @@ lines_after_match_in_preview: 1
 # Below are two examples that you may uncomment and adapt:
 #
 preview_transformers: [
-    // # Use mutool to render any PDF file as an image
-    // # In this example we use placeholders for the input and output files
-    // {
-    //     input_extensions: [ "pdf" ] // case doesn't matter
-    //     output_extension: png
-    //     mode: image
-    //     command: [ "mutool", "draw", "-w", "1000", "-o", "{output-path}", "{input-path}" ]
-    // }
+    # Use mutool to render any PDF file as an image
+    # In this example we use placeholders for the input and output files
+    {
+      input_extensions: [ "pdf" ] // case doesn't matter
+      output_extension: png
+      mode: image
+      command: [ "mutool", "draw", "-w", "1000", "-o", "{output-path}", "{input-path}" ]
+    }
 
     // # Use LibreOffice to render Office files as images
     // # In this example, {output-dir} is used to specify where LibreOffice must write the result
