@@ -4,7 +4,7 @@
   command = "micro"
 [diff]
   command = "delta"
-  args = ["--color-only", "--line-numbers", "--tabs", "2", "{{ .Destination }}", "{{ .Target }}"]
+  args = ["--color-only", "--line-numbers", "--tabs", "2", {{ "{{ .Destination }}" }}, {{ "{{ .Target }}" }}]
   
 {{- $owner_choices := list "private" "solidify" "if" -}}
 {{- $owner := promptChoiceOnce . "owner" "" $owner_choices -}}
