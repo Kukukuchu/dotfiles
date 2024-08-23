@@ -1,7 +1,7 @@
 {
-  "autosu": true,
-  "mkparents": true,
-  "tabsize": 2,
-  "tabstospaces": true,
-  "autoclose": true
+    "autosu": true,
+    "colorscheme": "vscode",
+    "mkparents": true,
+    "tabsize": 2,
+    "tabstospaces": true
 }
