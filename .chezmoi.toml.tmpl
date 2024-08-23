@@ -1,0 +1,15 @@
+[cd]
+  command = "fish"
+[edit]
+  command = "micro"
+[diff]
+  command = "delta"
+  args = ["--color-only", "--line-numbers", "--tabs", "2", "{{ .Destination }}", "{{ .Target }}"]
+  
+{{- $owner_choices := list "private" "solidify" "if" -}}
+{{- $owner := promptChoiceOnce . "owner" "" $owner_choices -}}
+{{- $install_packages := promptBoolOnce . "installPackages" "Install packages? y/n" -}}
+
+[data]
+  owner = {{- $owner | quote -}}
+  installPackages = {{- $install_packages | quote -}}
