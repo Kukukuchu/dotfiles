@@ -1,0 +1,32 @@
+[install.linux]
+packages = [
+  "fish",
+  "flatpak",
+  "fontconfig",
+  "git",
+  "podman",
+  "xdg-utils"
+]
+
+[install.linux.wsl]
+packages = [
+  "wslu"
+]
+
+[install.opensuse-tumbleweed]
+commands = { repo = "sudo zypper addrepo", pkg = "sudo zypper install", pattern = "sudo zypper install -t pattern" }
+packages = [
+  "devel_basis"
+]
+
+[install.opensuse-tumbleweed.wsl]
+repos = [
+  "https://copr.fedorainfracloud.org/coprs/wslutilities/wslu/repo/opensuse-tumbleweed/wslutilities-wslu-opensuse-tumbleweed.repo"
+]
+patterns = [
+  "wsl_gui"
+]
+
+[install.ubuntu]
+commands = { pkg = "apt install" }
+packages = []

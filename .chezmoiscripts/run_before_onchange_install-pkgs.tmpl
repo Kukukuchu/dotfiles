@@ -1,0 +1,44 @@
+#!/bin/bash
+{{- define "packages" }}
+
+{{- $repoList := dig "pkgs" "repos" list . -}}
+{{- $pkgList := dig "pkgs" "packages" list . -}}
+{{- $patternList := dig "pkgs" "patterns" list . -}}
+
+# [Repositories]
+{{- range $repoList }}
+{{ $.cmds.repo }} {{ . | quote }}
+{{- else }}
+# - No repositories
+{{- end }}
+
+# [Packages]
+{{- range $pkgList }}
+{{ $.cmds.pkg }} {{ . | quote }}
+{{- else }}
+# - No packages
+{{- end }}
+
+# [Patterns]
+{{- range $patternList }}
+{{ $.cmds.pattern }} {{ . | quote }}
+{{- else }}
+# - No patterns
+{{ end }}  
+
+{{- end -}}
+
+{{- if .installPackages }}
+{{- with (index .install .chezmoi.osRelease.id "commands") }}
+
+# -- Common --
+{{ template "packages" (dict "cmds" . "pkgs" (dig $.chezmoi.os list $.install )) }}
+# -- Distro --
+{{ template "packages" (dict "cmds" . "pkgs" (dig $.chezmoi.osRelease.id list $.install )) }}
+# -- WSL --
+{{if ($.chezmoi.kernel.osrelease | lower | contains "wsl") -}}
+  {{ template "packages" (dict "cmds" . "pkgs" (dig $.chezmoi.osRelease.id "wsl" list $.install )) }}
+{{- end -}}
+
+{{ end }}
+{{- end }}
