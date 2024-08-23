@@ -5,8 +5,8 @@ if status is-interactive
         # Only necessary if built-in integration does not work
         # . (code --locate-shell-integration-path fish)
         set -gx SUDO_EDITOR "$(which code) -w"
-        set -gx EDITOR "$(which code) -w"
-        set -gx VISUAL "$(which code) -w"
+        set -gx EDITOR "$(which code) -w -r"
+        set -gx VISUAL "$(which code) -w -r"
     end
 
     fzf_configure_bindings --directory=\cE --git_log=\eg --git_status=\eh --processes=\ep --variables=\ev
@@ -16,4 +16,6 @@ if status is-interactive
     # fish_ssh_agent
 end
 
-direnv hook fish | source
+# This should no longer be necessary if conf.d/_00-linuxbrew.fish sets up 
+# brew vendor config and direnv is installed via brew
+# direnv hook fish | source
