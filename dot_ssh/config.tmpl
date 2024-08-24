@@ -1,4 +1,9 @@
+AddKeysToAgent yes
+
 {{- if eq .owner "private" }}
+Host github.com
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/github
 {{- end }}
 
 {{- if eq .owner "if" }}
@@ -9,11 +14,38 @@ Host bitbucket.org
 Host ssh.dev.azure.com
   AddKeysToAgent yes
   IdentityFile ~/.ssh/azdo-if
-{{- end }}
-
-{{- if eq .owner "solidify" }}
-{{- end }}
 
 Host github.com
   AddKeysToAgent yes
   IdentityFile ~/.ssh/github
+  
+{{- end }}
+
+{{- if eq .owner "solidify" }}
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github_stada_id
+
+Host github_solidify
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github_solidify_id
+
+Host github_adnovum
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/adnovum_git_id
+
+Host ssh.dev.azure.com
+  HostName ssh.dev.azure.com
+  User git
+  IdentityFile ~/.ssh/azure_git_id
+
+Host azdo_solidify_demo
+  HostName ssh.dev.azure.com
+  User git
+  IdentityFile ~/.ssh/azdo_solidify_demo_id
+{{- end }}
+
+

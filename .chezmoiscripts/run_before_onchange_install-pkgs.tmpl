@@ -1,16 +1,13 @@
 #!/bin/bash
-{{- define "packages" }}
 
+{{- define "repos" }}
 {{- $repoList := dig "pkgs" "repos" list . -}}
+
+{{- end }}
+
+{{- define "packages" }}
 {{- $pkgList := dig "pkgs" "packages" list . -}}
 {{- $patternList := dig "pkgs" "patterns" list . -}}
-
-# [Repositories]
-{{- range $repoList }}
-{{ $.cmds.repo }} {{ . | quote }}
-{{- else }}
-# - No repositories
-{{- end }}
 
 # [Packages]
 {{- range $pkgList }}
@@ -29,15 +26,28 @@
 {{- end -}}
 
 {{- if .installPackages }}
-{{- with (index .install .chezmoi.osRelease.id "commands") }}
+{{- with (index .install .chezmoi.osRelease.id ) }}
+
+# [Repositories]
+{{- $repoList := default .repos list }}
+{{- if ($.chezmoi.kernel.osrelease | lower | contains "wsl") -}}
+  {{$repoList = concat $repoList (dig "wsl" "repos" list .)}}
+{{- end -}}
+{{ $repoCmd := .commands.repo }}
+{{- range $repoList }}
+{{ $repoCmd }} {{ . | quote }}
+{{- else }}
+# - No repositories
+{{- end }}
+{{ .commands.repoRefresh }}
 
 # -- Common --
-{{ template "packages" (dict "cmds" . "pkgs" (dig $.chezmoi.os list $.install )) }}
+{{ template "packages" (dict "cmds" .commands "pkgs" (dig $.chezmoi.os list $.install )) }}
 # -- Distro --
-{{ template "packages" (dict "cmds" . "pkgs" (dig $.chezmoi.osRelease.id list $.install )) }}
+{{ template "packages" (dict "cmds" .commands "pkgs" (dig $.chezmoi.osRelease.id list $.install )) }}
 # -- WSL --
 {{if ($.chezmoi.kernel.osrelease | lower | contains "wsl") -}}
-  {{ template "packages" (dict "cmds" . "pkgs" (dig $.chezmoi.osRelease.id "wsl" list $.install )) }}
+  {{ template "packages" (dict "cmds" .commands "pkgs" (dig $.chezmoi.osRelease.id "wsl" list $.install )) }}
 {{- end -}}
 
 {{ end }}

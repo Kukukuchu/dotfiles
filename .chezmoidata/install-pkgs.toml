@@ -5,28 +5,64 @@ packages = [
   "fontconfig",
   "git",
   "podman",
-  "xdg-utils"
+  "xdg-utils",
+  "dotnet-sdk-8.0",
+]
+flatpak = [
+  "md.obsidian.Obsidian",
+  "org.kde.kdiff3",
+  "org.sqlitebrowser.sqlitebrowser",
+  "com.sublimemerge.App",
+  "org.videolan.VLC",
 ]
 
-[install.linux.wsl]
-packages = [
-  "wslu"
-]
+[install.opensuse-tumbleweed.commands]
+repo = "sudo zypper addrepo"
+repoRefresh = "zypper refresh"
+pkg = "sudo zypper install"
+pattern = "sudo zypper install -t pattern"
+
 
 [install.opensuse-tumbleweed]
-commands = { repo = "sudo zypper addrepo", pkg = "sudo zypper install", pattern = "sudo zypper install -t pattern" }
-packages = [
-  "devel_basis"
+repos = [
+  # for fish
+  "https://download.opensuse.org/repositories/shells:fish:release:3/openSUSE_Tumbleweed/shells:fish:release:3.repo",
+  # for dotnet
+  "https://packages.microsoft.com/config/opensuse/15/prod.repo",
 ]
+patterns = ["devel_basis"]
 
 [install.opensuse-tumbleweed.wsl]
 repos = [
-  "https://copr.fedorainfracloud.org/coprs/wslutilities/wslu/repo/opensuse-tumbleweed/wslutilities-wslu-opensuse-tumbleweed.repo"
+  # for wslu and wsl_gui
+  "https://copr.fedorainfracloud.org/coprs/wslutilities/wslu/repo/opensuse-tumbleweed/wslutilities-wslu-opensuse-tumbleweed.repo",
 ]
-patterns = [
-  "wsl_gui"
-]
+packages = ["wslu"]
+patterns = ["wsl_gui"]
+
+[install.ubuntu.commands]
+repo = "sudo apt-add-repository"
+repoRefresh = "sudo apt update"
+pkg = "sudo apt install"
 
 [install.ubuntu]
-commands = { pkg = "apt install" }
-packages = []
+repos = [
+  # fish
+  "ppa:fish-shell/release-3",
+  # for older versions of dotnet
+  "ppa:dotnet/backports",
+]
+packages = [
+  "build-essential",
+  "fontconfig-config",
+]
+
+[install.ubuntu.wsl]
+repos = [
+  # wslu preinstalled
+  # PPA repo in case newer version than in distro repo is needed
+  # ppa:wslutilities/wslu
+]
+packages = [
+  #systemd-timesyncd # in case system clock keeps breaking
+]
