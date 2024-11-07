@@ -43,8 +43,8 @@
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.enableImages": true,
   
-  "bicep.experimental.enableModuleRegistryReferenceCompletions": true,
-  "bicep.experimental.includeAllAccessibleAzureContainerRegistriesForCompletions": true,
+  "bicep.completions.getAllAccessibleAzureContainerRegistries": true,
+  "bicep.enableSurveys": false,
   "dotnetAcquisitionExtension.existingDotnetPath": [
     {
       "extensionId": "ms-azuretools.vscode-bicep",
@@ -65,6 +65,7 @@
     "scminput": false
   },
   "github.copilot.chat.scopeSelection": true,
+  "github.copilot.chat.search.semanticTextResults": true,
   "github.copilot.editor.enableAutoCompletions": true,
 
   "typescript.updateImportsOnFileMove.enabled": "always",

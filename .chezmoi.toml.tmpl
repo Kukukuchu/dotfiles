@@ -9,7 +9,9 @@
 {{ $owner_choices := list "private" "solidify" "if" -}}
 {{- $owner := promptChoiceOnce . "owner" "" $owner_choices -}}
 {{- $install_packages := promptBoolOnce . "installPackages" "Install packages? y/n" -}}
+{{- $windowsUsername := promptStringOnce . "windowsUsername" "Windows username" -}}
 
 [data]
   owner = {{ $owner | quote }}
+  windowsUsername = {{ $windowsUsername | quote }}
   installPackages = {{ $install_packages }}

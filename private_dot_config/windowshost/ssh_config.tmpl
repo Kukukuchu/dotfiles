@@ -1,0 +1,39 @@
+# Put in C:\Users\{{- .windowsUsername -}}\.ssh\config
+
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github_kukukuchu.pub
+  IdentitiesOnly yes
+
+{{- if eq .owner "if" }}
+
+Host ssh.dev.azure.com
+  HostName ssh.dev.azure.com
+  User git
+  IdentityFile ~/.ssh/ado-if.pub
+  IdentitiesOnly yes
+  
+{{- end }}
+
+{{- if eq .owner "solidify" }}
+
+Host github_solidify
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github_solidify.pub
+  IdentitiesOnly yes
+
+Host ssh.dev.azure.com
+  HostName ssh.dev.azure.com
+  User git
+  IdentityFile ~/.ssh/ado_solidify.pub
+  IdentitiesOnly yes
+
+Host azdo_solidify_demo
+  HostName ssh.dev.azure.com
+  User git
+  IdentityFile ~/.ssh/ado_solidify_demo.pub
+  IdentitiesOnly yes
+
+{{- end }}
