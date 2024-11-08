@@ -2,6 +2,11 @@
 
 echo "> brew bundle"
 brew bundle
+echo "> ensure fisher plugin"
+if ! type -q fisher
+  echo "Sourcing from github"
+  curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source
+end
 echo "> fisher update"
 fisher update
 echo "> fish_config theme save neon"
