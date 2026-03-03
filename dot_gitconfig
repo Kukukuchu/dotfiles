@@ -10,8 +10,8 @@
 
 [core]
   pager = delta
-	editor = micro
-	sshCommand = ssh.exe
+  editor = micro
+  sshCommand = ssh.exe
 
 [interactive]
   diffFilter = delta --color-only --features=interactive
@@ -43,4 +43,9 @@
 
 [includeIf "gitdir:~/projects/**"]
   path = ~/projects/.gitconfig
-
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
