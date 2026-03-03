@@ -3,7 +3,8 @@
   "workbench.colorTheme": "Visual Studio Dark",
   "workbench.layoutControl.enabled": false,
   "workbench.editor.customLabels.patterns": {
-    "**/index.{ts,tsx,js,jsx,module.css}": "${dirname}/"
+    "**/index.{ts,tsx,js,jsx,module.css}": "${dirname}/",
+    "**/{job,component,test_registered_component}.{yml,yaml}": "${dirname} [${filename}]",
   },
   "editor.tabSize": 2,
   "editor.accessibilitySupport": "off",
@@ -77,4 +78,46 @@
   "files.associations": {
     ".env": "plaintext"
   },
+  "githubLocalActions.actCommand": "gh act",
+  "evenBetterToml.formatter.arrayTrailingComma": true,
+  "evenBetterToml.formatter.columnWidth": 180,
+  "evenBetterToml.formatter.trailingNewline": true,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+        {
+            "scope": "support.type.property-name.table",
+            "settings": {
+                "foreground": "#4EC9B0",
+            },
+        },
+        {
+            "scope": "support.type.property-name.array",
+            "settings": {
+                "foreground": "#569CD6",
+            }
+        },
+        {
+            "scope": "constant.other.time",
+            "settings": {
+                "foreground": "#DCDCAA",
+            }
+        }
+    ]
+},
+"github.copilot.chat.editor.temporalContext.enabled": true,
+"github.copilot.chat.edits.codesearch.enabled": true,
+"github.copilot.chat.completionContext.typescript.mode": "sidecar",
+"github.copilot.chat.edits.temporalContext.enabled": true,
+"github.copilot.chat.followUps": "always",
+"shellcheck.ignorePatterns": {
+  "**/*.env": true,
+  "**/*.env.*": true
+},
+"github.copilot.nextEditSuggestions.enabled": true,
+"editor.inlineSuggest.edits.showCollapsed": true,
+"chat.experimental.statusIndicator.enabled": true,
+"github.copilot.chat.codesearch.enabled": true,
+"terminal.integrated.suggest.enabled": true,
+"chat.todoListTool.enabled": true,
+"chat.math.enabled": true,
 }
